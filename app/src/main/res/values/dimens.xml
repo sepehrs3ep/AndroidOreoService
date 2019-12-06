@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="background_round_size">8dp</dimen>
+
+
+    <!-- Exit Dialog -->
+    <dimen name="exit_dialog_action_width">130dp</dimen>
+    <dimen name="exit_dialog_action_height">40dp</dimen>
+    <dimen name="exit_dialog_action_margin_between">8dp</dimen>
+    <dimen name="exit_dialog_action_margin_start_end">10dp</dimen>
+    <dimen name="exit_dialog_action_text_size">15sp</dimen>
+    <dimen name="exit_dialog_action_margin_top_bottom">10dp</dimen>
+    <dimen name="exit_dialog_title_text_size">18sp</dimen>
+    <dimen name="exit_dialog_title_margin_top">20dp</dimen>
+    <dimen name="exit_dialog_root_round">8dp</dimen>
+
+
+</resources>
