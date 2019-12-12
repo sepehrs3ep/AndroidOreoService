@@ -4,4 +4,8 @@
     <string name="exit_dialog_title">Close app?</string>
     <string name="exit_dialog_accept">Close</string>
     <string name="exit_dialog_deny">Stay</string>
+
+    <string name="android_oreo_service">Android Oreo Service</string>
+    <string name="service_body_text">App is running click for opening</string>
+    <string name="service_exit_action_text">Exit !</string>
 </resources>

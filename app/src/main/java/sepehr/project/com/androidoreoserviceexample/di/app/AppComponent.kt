@@ -7,6 +7,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import sepehr.project.com.androidoreoserviceexample.BaseApplication
 import sepehr.project.com.androidoreoserviceexample.di.scopes.AppScope
 import sepehr.project.com.androidoreoserviceexample.di.utils.ActivityBuildersModule
+import sepehr.project.com.androidoreoserviceexample.di.utils.ServiceBuildersModule
 import sepehr.project.com.androidoreoserviceexample.di.utils.view_model.ViewModelFactoryModule
 
 @AppScope
@@ -15,6 +16,7 @@ import sepehr.project.com.androidoreoserviceexample.di.utils.view_model.ViewMode
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityBuildersModule::class,
+        ServiceBuildersModule::class,
         ViewModelFactoryModule::class
     ]
 )
