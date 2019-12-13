@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import dagger.android.DaggerService
 import sepehr.project.com.androidoreoserviceexample.R
+import sepehr.project.com.androidoreoserviceexample.broadcast.DashboardServiceActionManagerBroadcastReceiver
 
 class DashboardService : DaggerService() {
 
@@ -131,12 +132,20 @@ class DashboardService : DaggerService() {
         }
     }
 
-    private fun getStopActionIntent(): PendingIntent? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun getStopActionIntent(): PendingIntent {
+        return DashboardServiceActionManagerBroadcastReceiver
+            .getBroadCastPendingIntent(
+                context = applicationContext,
+                action = DashboardServiceActionManagerBroadcastReceiver.ACTION_STOP_SERVICE
+            )
     }
 
-    private fun getOpenActionIntent(): PendingIntent? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun getOpenActionIntent(): PendingIntent {
+        return DashboardServiceActionManagerBroadcastReceiver
+            .getBroadCastPendingIntent(
+                context = applicationContext,
+                action = DashboardServiceActionManagerBroadcastReceiver.ACTION_OPEN_ACTIVITY
+            )
     }
 
 
