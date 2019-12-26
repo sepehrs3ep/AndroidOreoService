@@ -4,10 +4,15 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import dagger.android.DaggerBroadcastReceiver
+import sepehr.project.com.androidoreoserviceexample.component.service_manager.ServiceManager
 import sepehr.project.com.androidoreoserviceexample.ui.dashboard.DashboardActivity
 import timber.log.Timber
+import javax.inject.Inject
 
 class DashboardServiceActionManagerBroadcastReceiver : DaggerBroadcastReceiver() {
+
+    @Inject
+    lateinit var serviceManager: ServiceManager
 
     companion object {
         const val ACTION_OPEN_ACTIVITY: String =
@@ -58,10 +63,8 @@ class DashboardServiceActionManagerBroadcastReceiver : DaggerBroadcastReceiver()
             }
 
             if (ACTION_STOP_SERVICE == it) {
-                TODO("Stop service")
+                serviceManager.stopService()
             }
-
-
         }
     }
 

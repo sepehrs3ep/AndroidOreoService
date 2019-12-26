@@ -5,6 +5,8 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import sepehr.project.com.androidoreoserviceexample.BaseApplication
+import sepehr.project.com.androidoreoserviceexample.di.app.service_manager.ServiceManagerModule
+import sepehr.project.com.androidoreoserviceexample.di.app.service_manager.ServiceStateAwareModule
 import sepehr.project.com.androidoreoserviceexample.di.scopes.AppScope
 import sepehr.project.com.androidoreoserviceexample.di.utils.ActivityBuildersModule
 import sepehr.project.com.androidoreoserviceexample.di.utils.BroadcastReceiverBuildersModule
@@ -19,7 +21,9 @@ import sepehr.project.com.androidoreoserviceexample.di.utils.view_model.ViewMode
         ActivityBuildersModule::class,
         ServiceBuildersModule::class,
         BroadcastReceiverBuildersModule::class,
-        ViewModelFactoryModule::class
+        ViewModelFactoryModule::class,
+        ServiceStateAwareModule::class,
+        ServiceManagerModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {

@@ -4,10 +4,14 @@ import android.app.Activity
 import android.os.Bundle
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
+import sepehr.project.com.androidoreoserviceexample.component.service_manager.ServiceManager
 import sepehr.project.com.androidoreoserviceexample.di.app.DaggerAppComponent
 import timber.log.Timber
+import javax.inject.Inject
 
 class BaseApplication : DaggerApplication() {
+    @Inject
+    lateinit var serviceManager: ServiceManager
 
     private val activityLifecycleCallbacks =
         object : ActivityLifecycleCallbacks {
@@ -32,7 +36,7 @@ class BaseApplication : DaggerApplication() {
             }
 
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-                TODO("Start service !")
+                serviceManager.startService()
             }
 
             override fun onActivityResumed(activity: Activity) {

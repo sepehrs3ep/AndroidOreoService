@@ -3,9 +3,11 @@ package sepehr.project.com.androidoreoserviceexample.ui.dashboard
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.support.DaggerAppCompatActivity
 import sepehr.project.com.androidoreoserviceexample.R
+import sepehr.project.com.androidoreoserviceexample.component.service_manager.ServiceStateAware
 import sepehr.project.com.androidoreoserviceexample.databinding.AskForExitDialogBinding
 import sepehr.project.com.androidoreoserviceexample.di.utils.view_model.ViewModelProviderFactory
 import javax.inject.Inject
@@ -14,6 +16,9 @@ class DashboardActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProviderFactory
+
+    @Inject
+    lateinit var serviceStateAware: ServiceStateAware
 
     lateinit var viewModel: DashboardViewModel
 
@@ -50,7 +55,7 @@ class DashboardActivity : DaggerAppCompatActivity() {
     private fun setupObservers() {
         viewModel.finishActivityLiveEvent.observe(
             this,
-            androidx.lifecycle.Observer {
+            Observer {
                 it?.let {
                     if (it) {
                         this.finish()
@@ -61,7 +66,7 @@ class DashboardActivity : DaggerAppCompatActivity() {
 
         viewModel.dismissDialogLiveEvent.observe(
             this,
-            androidx.lifecycle.Observer {
+            Observer {
                 it?.let {
                     if (
                         it &&
@@ -70,6 +75,13 @@ class DashboardActivity : DaggerAppCompatActivity() {
                         this.exitDialog.dismiss()
                     }
                 }
+            }
+        )
+
+        serviceStateAware.dashboardServiceStateLiveData.observe(
+            this,
+            Observer {
+                finish()
             }
         )
     }

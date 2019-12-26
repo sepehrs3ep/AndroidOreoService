@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="sepehr.project.com.androidoreoserviceexample">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -14,7 +16,6 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.dashboard.DashboardActivity"
-            android:hardwareAccelerated="true"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -25,12 +25,14 @@ class DashboardService : DaggerService() {
         private const val MAIN_SERVICE_START_COMMAND: Int = 1
 
         fun getStartIntent(context: Context): Intent =
-            Intent(context, DashboardService::class.java).apply {
+            getIntent(context).apply {
                 this.putExtra(
                     MAIN_SERVICE_START_COMMAND_KEY,
                     MAIN_SERVICE_START_COMMAND
                 )
             }
+
+        fun getIntent(context: Context): Intent = Intent(context, DashboardService::class.java)
     }
 
     override fun onCreate() {
